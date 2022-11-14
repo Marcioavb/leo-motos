@@ -13,9 +13,8 @@ public class LeoMotosApplication {
 	
 	@GetMapping
 	public String getHomeTeste() {
-		return "Leo Motos a Empresa que mais cresce";
+		return "Leo Motos Teste ok";
 	}
-	
 	public static void main(String[] args) {
 		SpringApplication.run(LeoMotosApplication.class, args);
 	}
