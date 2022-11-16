@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.leomotos.leomotos.cliente.application.api.ClienteEditadoRequest;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class Cliente {
 	private String nomeCompleto;
 	@NotBlank
 	@Email
+	@Column(unique = true)
 	private String email;
 	@NotBlank
 	private String celular;
@@ -38,6 +40,7 @@ public class Cliente {
 	@NotNull
 	private LocalDate dataNascimento;
 	@CPF
+	@Column(unique = true)
 	private String cpf;
 	@NotNull
 	private Boolean aceitaTermos;
@@ -55,6 +58,16 @@ public class Cliente {
 		this.cpf = clienteRequest.getCpf();
 		this.aceitaTermos = clienteRequest.getAceitaTermos();
 		this.datahoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteEditadoRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.celular = clienteRequest.getCelular();
+		this.telefone = clienteRequest.getCelular();
+		this.sexo = clienteRequest.getSexo();
+		this.dataNascimento = clienteRequest.getDataNascimento();
+		this.aceitaTermos = clienteRequest.getAceitaTermos();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
 

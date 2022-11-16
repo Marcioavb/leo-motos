@@ -3,9 +3,12 @@ package br.com.leomotos.leomotos.cliente.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import br.com.leomotos.leomotos.cliente.application.api.ClienteDetalhadoResponse;
+import br.com.leomotos.leomotos.cliente.application.api.ClienteEditadoRequest;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteListResponse;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteRequest;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteResponse;
@@ -53,6 +56,18 @@ public class ClienteApplicationService implements ClienteService {
 		clienteRepository.deletaClienteAtravesId(cliente);
 		log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesId");
 	}
+
+	@Override
+	public void patchEditaCliente(UUID idCliente, ClienteEditadoRequest clienteEditadoRequest) {
+		log.info("[inicia] ClienteApplicationService - patchEditaCliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId (idCliente);
+		cliente.altera (clienteEditadoRequest);
+		clienteRepository.salva(cliente);
+		log.info("[inicia] ClienteApplicationService - patchEditaCliente");
+
+
+	}
+
 }
 
 
