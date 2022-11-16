@@ -6,7 +6,9 @@ import java.util.UUID;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +31,13 @@ public interface ClienteApi {
 	@GetMapping (value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.OK)
 	ClienteDetalhadoResponse getClienteAtravesDoId (@PathVariable UUID idCliente);
+	
+	@DeleteMapping (value = "/{idCliente}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void deletaClienteAtravesDoId (@PathVariable UUID idCliente);
+	
+//	@PatchMapping (value = "/{idCliente}")
+//	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+//	void patchEditaCliente (@PathVariable UUID idCliente, 
+//			@Valid @RequestBody ClienteEditadoRequest clienteEditadoRequest);
 }
-
