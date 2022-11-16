@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import br.com.leomotos.leomotos.cliente.domain.Cliente;
 import br.com.leomotos.leomotos.cliente.domain.Sexo;
+import lombok.Value;
 
+@Value
 public class ClienteDetalhadoResponse {
 
 	private UUID idCliente;
