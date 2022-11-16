@@ -1,9 +1,11 @@
 package br.com.leomotos.leomotos.cliente.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.leomotos.leomotos.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteListResponse;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteRequest;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteResponse;
@@ -34,6 +36,14 @@ public class ClienteApplicationService implements ClienteService {
 		List<Cliente> clientes = clienteRepository.buscaTodosclientes();
 		log.info("[finaliza] ClienteApplicationService - buscaTodosClientes");
 		return ClienteListResponse.converte(clientes);
+	}
+
+	@Override
+	public ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia] ClienteApplicationService - buscaClienteAtravesId");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId (idCliente);
+		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
+		return new ClienteDetalhadoResponse(cliente);
 	}
 }
 
