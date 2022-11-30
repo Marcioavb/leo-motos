@@ -64,10 +64,7 @@ public class ClienteApplicationService implements ClienteService {
 		cliente.altera (clienteEditadoRequest);
 		clienteRepository.salva(cliente);
 		log.info("[inicia] ClienteApplicationService - patchEditaCliente");
-
-
 	}
-
 }
 
 

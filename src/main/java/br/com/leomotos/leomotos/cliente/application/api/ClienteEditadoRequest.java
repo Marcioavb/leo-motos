@@ -23,5 +23,4 @@ public class ClienteEditadoRequest {
 	public @NotNull Boolean getAceitaTermos() {
 		return true;
 	}
-	
 }
