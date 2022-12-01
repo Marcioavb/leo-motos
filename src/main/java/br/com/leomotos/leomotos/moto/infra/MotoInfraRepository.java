@@ -44,13 +44,6 @@ public class MotoInfraRepository implements MotoRepository {
 	}
 }
 
-//log.info("[start] PetInfraRepository - buscaPetPeloId");
-//var pet = petSpringDataJPARepository.findById(idPet).orElseThrow(
-//		() -> APIException.build(HttpStatus.NOT_FOUND, "pet nao encontrado para o idPet = " + idPet));
-//log.info("[finish] PetInfraRepository - buscaPetPeloId");
-//return pet;
-
-
 
 
 
