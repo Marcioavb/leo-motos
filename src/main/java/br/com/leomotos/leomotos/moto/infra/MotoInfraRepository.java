@@ -1,5 +1,8 @@
 package br.com.leomotos.leomotos.moto.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.leomotos.leomotos.moto.application.repository.MotoRepository;
@@ -19,5 +22,17 @@ public class MotoInfraRepository implements MotoRepository {
 		motoSpringDataJPARepository.save(moto);
 		log.info("[termino] MotoInfraRepository - salvaMoto");
 		return moto;
+
+	}
+
+	@Override
+	public List<Moto> buscaMotosDoClienteComId(UUID idCliente) {
+		log.info("[inicio] MotoInfraRepository - buscaMotosDoClienteComId");
+		var motos  = motoSpringDataJPARepository.findByIdClientePropietario(idCliente);
+		log.info("[termino] MotoInfraRepository - buscaMotosDoClienteComId");
+		return motos;
 	}
 }
+
+
+

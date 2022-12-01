@@ -27,8 +27,9 @@ public class Moto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idMoto", updatable = false, unique = true, nullable = false)
 	private UUID idMoto;
-//	@Column(columnDefinition = "uuid", name = "idClientePropietario", nullable = false)
-//	private UUID idClientePropietario;
+	@NotNull
+	@Column(columnDefinition = "uuid", name = "idClientePropietario", nullable = false)
+	private UUID idClientePropietario;
 	@NotNull
 	@Column(unique = true)
 	private String placa;
@@ -45,7 +46,7 @@ public class Moto {
 	private LocalDateTime dataHoraDoUltimoServico;
 
 	public Moto(UUID idCliente, @Valid MotoRequest motoRequest) {
-		//this.idClientePropietario = idCliente;
+		this.idClientePropietario = idCliente;
 		this.placa = motoRequest.getPlaca();
 		this.ano = motoRequest.getAno();
 		this.cor = motoRequest.getCor();
