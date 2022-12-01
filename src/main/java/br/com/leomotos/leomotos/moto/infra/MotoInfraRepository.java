@@ -3,8 +3,10 @@ package br.com.leomotos.leomotos.moto.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.leomotos.leomotos.handler.APIException;
 import br.com.leomotos.leomotos.moto.application.repository.MotoRepository;
 import br.com.leomotos.leomotos.moto.dimain.Moto;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +24,6 @@ public class MotoInfraRepository implements MotoRepository {
 		motoSpringDataJPARepository.save(moto);
 		log.info("[termino] MotoInfraRepository - salvaMoto");
 		return moto;
-
 	}
 
 	@Override
@@ -32,7 +33,27 @@ public class MotoInfraRepository implements MotoRepository {
 		log.info("[termino] MotoInfraRepository - buscaMotosDoClienteComId");
 		return motos;
 	}
+
+	@Override
+	public Moto buscaMotopeloId(UUID idMoto) {
+		log.info("[inicio] MotoInfraRepository - buscaMotopeloId");
+		var moto = motoSpringDataJPARepository.findById(idMoto).orElseThrow(
+				()-> APIException.build(HttpStatus.NOT_FOUND, "Moto nao encontrada para o idMoto = " +idMoto));
+		log.info("[termino] MotoInfraRepository - buscaMotopeloId");
+		return moto;
+	}
 }
+
+//log.info("[start] PetInfraRepository - buscaPetPeloId");
+//var pet = petSpringDataJPARepository.findById(idPet).orElseThrow(
+//		() -> APIException.build(HttpStatus.NOT_FOUND, "pet nao encontrado para o idPet = " + idPet));
+//log.info("[finish] PetInfraRepository - buscaPetPeloId");
+//return pet;
+
+
+
+
+
 
 
 

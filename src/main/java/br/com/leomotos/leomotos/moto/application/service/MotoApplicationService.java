@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.leomotos.leomotos.cliente.application.service.ClienteService;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
+import br.com.leomotos.leomotos.moto.application.api.MotoClientedetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoResponse;
 import br.com.leomotos.leomotos.moto.application.repository.MotoRepository;
@@ -40,8 +41,16 @@ public class MotoApplicationservice implements MotoService {
 		log.info("[termino] MotoApplicationservice - buscaMotosdoClienteComId");
 		return MotoClienteListReponse.converte(motosDocliente);
 	}
+
+	@Override
+	public MotoClientedetalahadoResponse buscaMotodoClienteComId(UUID idCliente, UUID idMoto) {
+		log.info("[inicio] MotoApplicationservice - buscaMotodoClienteComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		Moto moto = motoRepository.buscaMotopeloId(idMoto);
+		log.info("[termino] MotoApplicationservice - buscaMotodoClienteComId");
+		return new MotoClientedetalahadoResponse(moto);
+	}
 }
-	
 	
 	
 

@@ -28,10 +28,10 @@ public interface MotoAPI {
 	List<MotoClienteListReponse> getMotosDoClienteComId 
 	(@PathVariable UUID idCliente);
 	
-//	@GetMapping(value = "/{idMoto}")
-//	@ResponseStatus(code = HttpStatus.OK)
-//	MotoClientedetalahadoResponse getMotoDoClienteComId 
-//	(@PathVariable UUID idCliente, @PathVariable UUID idMoto);
+	@GetMapping(value = "/{idMoto}")
+	@ResponseStatus(code = HttpStatus.OK)
+	MotoClientedetalahadoResponse getMotoDoClienteComId 
+	(@PathVariable UUID idCliente, @PathVariable UUID idMoto);
 }
 
 
