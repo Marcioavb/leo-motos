@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -55,4 +56,15 @@ public class Moto {
 		this.tipoDeServico = motoRequest.getTipoDeServico();
 		this.dataDoServico = LocalDateTime.now();
 	}
+	public void altera(MotoAlteracaoRequest motoRequest) {
+		this.placa = motoRequest.getPlaca();
+		this.ano = motoRequest.getAno();
+		this.cor = motoRequest.getCor();
+		this.modelo = motoRequest.getModelo();
+		this.marca = motoRequest.getMarca();
+		this.tipoDeServico = motoRequest.getTipoDeServico();
+		this.dataHoraDoUltimoServico = LocalDateTime.now();
+	}
 }
+
+

@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import br.com.leomotos.leomotos.cliente.application.service.ClienteService;
+import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoClientedetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
@@ -59,7 +60,26 @@ public class MotoApplicationservice implements MotoService {
 		motoRepository.deletaMoto(moto);
 		log.info("[termino] MotoApplicationservice - deletaMotoDoClienteComId");
 	}
+
+	@Override
+	public void alteraMotoDoClienteComId(UUID idCliente, UUID idMoto, MotoAlteracaoRequest motoAlteracaoRequest) {
+		log.info("[inicio] MotoApplicationservice - alteraMotoDoCliente");
+		clienteService.buscaClienteAtravesId(idCliente);
+		Moto moto = motoRepository.buscaMotopeloId(idMoto);
+		moto.altera(motoAlteracaoRequest);
+		motoRepository.salvaMoto(moto);
+		log.info("[inicio] MotoApplicationservice - alteraMotoDoCliente");
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 

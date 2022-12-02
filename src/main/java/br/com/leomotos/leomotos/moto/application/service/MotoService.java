@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoClientedetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
@@ -15,5 +16,8 @@ public interface MotoService {
 	List<MotoClienteListReponse> buscaMotosdoClienteComId(UUID idCliente);
 	MotoClientedetalahadoResponse buscaMotodoClienteComId(UUID idCliente, UUID idMoto);
 	void deletaMotoDoClienteComId(UUID idCliente, UUID idMoto);
+	void alteraMotoDoClienteComId(UUID idCliente, UUID idMoto, MotoAlteracaoRequest motoAlteracaoRequest);
 }
+
+
 

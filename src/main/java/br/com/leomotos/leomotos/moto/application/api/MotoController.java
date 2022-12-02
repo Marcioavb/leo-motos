@@ -52,6 +52,14 @@ public class MotoController implements MotoAPI {
 		motoService.deletaMotoDoClienteComId(idCliente, idMoto);
 		log.info("[termino] MotoController - deletaMotoDoClienteAtravesdoId");
 	}
+
+	@Override
+	public void patchMoto(UUID idCliente, UUID idMoto, @Valid MotoAlteracaoRequest motoAlteracaoRequest) {
+		log.info("[inicio] MotoController - patchMoto");
+		log.info("[idCliente] {} - [idMoto] ", idCliente, idMoto);
+		motoService.alteraMotoDoClienteComId(idCliente, idMoto, motoAlteracaoRequest);
+		log.info("[inicio] MotoController - patchMoto");
+	}
 }
 
 
