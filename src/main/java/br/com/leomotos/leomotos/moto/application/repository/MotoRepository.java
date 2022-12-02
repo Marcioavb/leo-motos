@@ -9,4 +9,6 @@ public interface MotoRepository {
 	Moto salvaMoto(Moto moto);
 	List<Moto> buscaMotosDoClienteComId(UUID idCliente);
 	Moto buscaMotopeloId(UUID idMoto);
+	void deletaMoto(Moto moto);
 }
+

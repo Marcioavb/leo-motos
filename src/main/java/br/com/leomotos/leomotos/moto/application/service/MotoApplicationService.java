@@ -50,9 +50,18 @@ public class MotoApplicationservice implements MotoService {
 		log.info("[termino] MotoApplicationservice - buscaMotodoClienteComId");
 		return new MotoClientedetalahadoResponse(moto);
 	}
+
+	@Override
+	public void deletaMotoDoClienteComId(UUID idCliente, UUID idMoto) {
+		log.info("[inicio] MotoApplicationservice - deletaMotoDoClienteComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		Moto moto = motoRepository.buscaMotopeloId(idMoto);
+		motoRepository.deletaMoto(moto);
+		log.info("[termino] MotoApplicationservice - deletaMotoDoClienteComId");
+	}
 }
-	
-	
+
+
 
 
 

@@ -14,4 +14,6 @@ public interface MotoService {
 	MotoResponse criaMoto(UUID idCliente, @Valid MotoRequest motoRequest);
 	List<MotoClienteListReponse> buscaMotosdoClienteComId(UUID idCliente);
 	MotoClientedetalahadoResponse buscaMotodoClienteComId(UUID idCliente, UUID idMoto);
+	void deletaMotoDoClienteComId(UUID idCliente, UUID idMoto);
 }
+

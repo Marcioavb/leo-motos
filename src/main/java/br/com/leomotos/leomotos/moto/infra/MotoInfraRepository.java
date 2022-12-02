@@ -42,6 +42,13 @@ public class MotoInfraRepository implements MotoRepository {
 		log.info("[termino] MotoInfraRepository - buscaMotopeloId");
 		return moto;
 	}
+
+	@Override
+	public void deletaMoto(Moto moto) {
+		log.info("[inicio] MotoInfraRepository - deletaMoto");
+		motoSpringDataJPARepository.delete(moto);
+		log.info("[termino] MotoInfraRepository - deletaMoto");
+	}
 }
 
 
