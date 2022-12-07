@@ -41,7 +41,6 @@ public class Moto {
 	@NotBlank
 	private String modelo;
 	private Marca marca;
-	private TipoDeServico tipoDeServico;
 
 	private LocalDateTime dataDoServico;
 	private LocalDateTime dataHoraDoUltimoServico;
@@ -53,7 +52,6 @@ public class Moto {
 		this.cor = motoRequest.getCor();
 		this.modelo = motoRequest.getModelo();
 		this.marca = motoRequest.getMarca();
-		this.tipoDeServico = motoRequest.getTipoDeServico();
 		this.dataDoServico = LocalDateTime.now();
 	}
 	public void altera(MotoAlteracaoRequest motoRequest) {
@@ -62,7 +60,6 @@ public class Moto {
 		this.cor = motoRequest.getCor();
 		this.modelo = motoRequest.getModelo();
 		this.marca = motoRequest.getMarca();
-		this.tipoDeServico = motoRequest.getTipoDeServico();
 		this.dataHoraDoUltimoServico = LocalDateTime.now();
 	}
 }

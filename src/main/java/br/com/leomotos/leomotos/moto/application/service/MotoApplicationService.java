@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.leomotos.leomotos.cliente.application.service.ClienteService;
 import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
+import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponseParametro;
 import br.com.leomotos.leomotos.moto.application.api.MotoClientedetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoResponse;
@@ -68,9 +69,22 @@ public class MotoApplicationservice implements MotoService {
 		Moto moto = motoRepository.buscaMotopeloId(idMoto);
 		moto.altera(motoAlteracaoRequest);
 		motoRepository.salvaMoto(moto);
-		log.info("[inicio] MotoApplicationservice - alteraMotoDoCliente");
+		log.info("[termino] MotoApplicationservice - alteraMotoDoCliente");
 	}
+
+	@Override
+	public List<MotoClienteListReponseParametro> buscaMotosdoClientePorParametro(UUID idCliente) {
+		log.info("[inicio] MotoApplicationservice - buscaMotosdoClientePorParametro");
+		clienteService.buscaClienteAtravesId(idCliente);
+		List<Moto> motosDocliente = motoRepository.buscaMotosDoClientePorParametro(idCliente);
+		log.info("[termino] MotoApplicationservice - buscaMotosdoClientePorParametro");
+		return MotoClienteListReponseParametro.converte(motosDocliente);
+	}
+
+	
 }
+
+
 
 
 

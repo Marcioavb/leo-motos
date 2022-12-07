@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import br.com.leomotos.leomotos.moto.dimain.Marca;
 import br.com.leomotos.leomotos.moto.dimain.Moto;
-import br.com.leomotos.leomotos.moto.dimain.TipoDeServico;
 import lombok.Value;
 
 @Value
@@ -17,7 +16,6 @@ public class MotoClientedetalahadoResponse {
 	private String cor;
 	private String modelo;
 	private Marca marca;
-	private TipoDeServico tipoDeServico;
 	
 	public MotoClientedetalahadoResponse(Moto moto) {
 		this.idMoto = moto.getIdMoto();
@@ -26,6 +24,5 @@ public class MotoClientedetalahadoResponse {
 		this.cor = moto.getCor();
 		this.modelo = moto.getModelo();
 		this.marca = moto.getMarca();
-		this.tipoDeServico = moto.getTipoDeServico();
 	}
 }

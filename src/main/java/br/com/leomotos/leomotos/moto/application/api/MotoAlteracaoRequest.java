@@ -6,7 +6,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.leomotos.leomotos.moto.dimain.Marca;
-import br.com.leomotos.leomotos.moto.dimain.TipoDeServico;
 import lombok.Value;
 
 @Value
@@ -20,5 +19,4 @@ public class MotoAlteracaoRequest {
 	private LocalDate ano;
 	@NotBlank
 	private String cor;
-	private TipoDeServico tipoDeServico;
 }

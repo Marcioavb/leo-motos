@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.leomotos.leomotos.moto.dimain.Moto;
 
 public interface MotoSpringDataJPARepository extends JpaRepository<Moto, UUID>{
-	List<Moto> findByIdClientePropietario(UUID idClientePropietario);
+	List<Moto> findByidClientePropietario(UUID idClienteTutor);
 }
+
 

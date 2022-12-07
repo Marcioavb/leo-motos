@@ -58,8 +58,19 @@ public class MotoController implements MotoAPI {
 		log.info("[inicio] MotoController - patchMoto");
 		log.info("[idCliente] {} - [idMoto] ", idCliente, idMoto);
 		motoService.alteraMotoDoClienteComId(idCliente, idMoto, motoAlteracaoRequest);
-		log.info("[inicio] MotoController - patchMoto");
+		log.info("[termino] MotoController - patchMoto");
 	}
+
+	@Override
+	public List<MotoClienteListReponseParametro> getMotosDoClienteParametro(UUID idCliente) {
+		log.info("[inicio] MotoController - getMotosDoClienteParametro");
+		log.info("[idCliente] {}", idCliente);
+		List<MotoClienteListReponseParametro> motosDoCliente = 
+				motoService.buscaMotosdoClientePorParametro(idCliente);
+		log.info("[termino] MotoController - getMotosDoClienteParametro");
+		return motosDoCliente;
+	}
+
 }
 
 

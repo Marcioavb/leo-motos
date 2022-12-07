@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
+import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponseParametro;
 import br.com.leomotos.leomotos.moto.application.api.MotoClientedetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoResponse;
@@ -17,6 +18,7 @@ public interface MotoService {
 	MotoClientedetalahadoResponse buscaMotodoClienteComId(UUID idCliente, UUID idMoto);
 	void deletaMotoDoClienteComId(UUID idCliente, UUID idMoto);
 	void alteraMotoDoClienteComId(UUID idCliente, UUID idMoto, MotoAlteracaoRequest motoAlteracaoRequest);
+	List<MotoClienteListReponseParametro> buscaMotosdoClientePorParametro(UUID idCliente);
 }
 
 

@@ -29,7 +29,7 @@ public class MotoInfraRepository implements MotoRepository {
 	@Override
 	public List<Moto> buscaMotosDoClienteComId(UUID idCliente) {
 		log.info("[inicio] MotoInfraRepository - buscaMotosDoClienteComId");
-		var motos  = motoSpringDataJPARepository.findByIdClientePropietario(idCliente);
+		var motos  = motoSpringDataJPARepository.findByidClientePropietario(idCliente);
 		log.info("[termino] MotoInfraRepository - buscaMotosDoClienteComId");
 		return motos;
 	}
@@ -49,7 +49,16 @@ public class MotoInfraRepository implements MotoRepository {
 		motoSpringDataJPARepository.delete(moto);
 		log.info("[termino] MotoInfraRepository - deletaMoto");
 	}
+
+	@Override
+	public List<Moto> buscaMotosDoClientePorParametro(UUID idCliente) {
+		log.info("[inicio] MotoInfraRepository - buscaMotosDoClientePorParametro");
+		var motos  = motoSpringDataJPARepository.findByidClientePropietario(idCliente);
+		log.info("[termino] MotoInfraRepository - buscaMotosDoClientePorParametro");
+		return motos;
+	}
 }
+
 
 
 

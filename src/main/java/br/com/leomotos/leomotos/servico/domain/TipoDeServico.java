@@ -1,4 +1,4 @@
-package br.com.leomotos.leomotos.moto.dimain;
+package br.com.leomotos.leomotos.servico.domain;
 
 public enum TipoDeServico {
 	REVISAO, TROCAR_OLEO, TROCAR_DISCO_DE_EMBRAGEM,

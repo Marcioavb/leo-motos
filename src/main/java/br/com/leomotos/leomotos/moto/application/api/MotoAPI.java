@@ -43,7 +43,13 @@ public interface MotoAPI {
 	@ResponseStatus (code = HttpStatus.NO_CONTENT)
 	void patchMoto(@PathVariable UUID idCliente, @PathVariable UUID idMoto,
 			@Valid @RequestBody MotoAlteracaoRequest motoAlteracaoRequest);
+	
+	@GetMapping(value = "/{placa}/{modelo}/{marca}")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<MotoClienteListReponseParametro> getMotosDoClienteParametro 
+	(@PathVariable UUID idCliente);
 }
+
 
 
 
