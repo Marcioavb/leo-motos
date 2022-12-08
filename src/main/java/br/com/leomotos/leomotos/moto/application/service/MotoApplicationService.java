@@ -80,8 +80,6 @@ public class MotoApplicationservice implements MotoService {
 		log.info("[termino] MotoApplicationservice - buscaMotosdoClientePorParametro");
 		return MotoClienteListReponseParametro.converte(motosDocliente);
 	}
-
-	
 }
 
 

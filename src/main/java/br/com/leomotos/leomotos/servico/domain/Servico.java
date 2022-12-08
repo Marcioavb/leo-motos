@@ -11,12 +11,14 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,3 +31,4 @@ public class Servico {
 	
 	private LocalDateTime dataDoServico;
 }
+// colocar os ids os 3

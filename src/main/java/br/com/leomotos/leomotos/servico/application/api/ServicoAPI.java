@@ -17,8 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/moto/{idMoto}/servico")
 public interface ServicoAPI {
 	
-	@PostMapping
+	@PostMapping 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	ServicoResponse postServico(@PathVariable UUID idMoto,
 			@Valid @RequestBody ServicoRequest servicoRequest);
 }
+
+//<dependency>
+//<groupId>org.springdoc</groupId>
+//<artifactId>springdoc-openapi-ui</artifactId>
+//<version>${spring-doc.version}</version>
+//</dependency>
+
+
+//<spring-doc.version>1.6.1</spring-doc.version>     //obs essa anotacao coloca embaixo da version java
+
+//springdoc:
+//	  swagger-ui:
+//	    path: /public/swagger    // coloca no yml

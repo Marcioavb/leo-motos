@@ -20,8 +20,8 @@ public class ServicoController implements ServicoAPI {
 	public ServicoResponse postServico(UUID idMoto, @Valid ServicoRequest servicoRequest) {
 		log.info("[inicio] MotoController - postServico");
 		log.info("[idMoto] {} ", idMoto);
-		ServicoResponse servico = servicoService.criaServico(idMoto, servicoService);
+		//ServicoResponse servico = servicoService.criaServico(idMoto, servicoService);
 		log.info("[finaliza] MotoController - postServico");
-		return servico;
+		return null;
 	}
 }
