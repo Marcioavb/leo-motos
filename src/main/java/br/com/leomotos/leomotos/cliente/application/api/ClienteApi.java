@@ -41,4 +41,3 @@ public interface ClienteApi {
 	void patchEditaCliente (@PathVariable UUID idCliente, 
 			@Valid @RequestBody ClienteEditadoRequest clienteEditadoRequest);
 }
-

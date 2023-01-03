@@ -50,4 +50,3 @@ public class ClienteInfraRepository implements ClienteRepository {
 		log.info("[ininia] ClienteInfraRepository -  deletaClienteAtravesId");
 	}
 }
-

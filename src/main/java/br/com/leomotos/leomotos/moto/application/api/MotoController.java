@@ -37,10 +37,10 @@ public class MotoController implements MotoAPI {
 	}
 
 	@Override
-	public MotoClientedetalahadoResponse getMotoDoClienteComId(UUID idCliente, UUID idMoto) {
+	public MotoClienteDetalahadoResponse getMotoDoClienteComId(UUID idCliente, UUID idMoto) {
 		log.info("[inicio] MotoController - getMotoDoClienteComId");
 		log.info("[idCliente] {} - [idMoto] ", idCliente, idMoto);
-		MotoClientedetalahadoResponse moto = motoService.buscaMotodoClienteComId(idCliente, idMoto);
+		MotoClienteDetalahadoResponse moto = motoService.buscaMotodoClienteComId(idCliente, idMoto);
 		log.info("[termino] MotoController - getMotoDoClienteComId");
 		return moto;
 	}
@@ -54,7 +54,7 @@ public class MotoController implements MotoAPI {
 	}
 
 	@Override
-	public void patchMoto(UUID idCliente, UUID idMoto, @Valid MotoAlteracaoRequest motoAlteracaoRequest) {
+	public void patchMoto(UUID idCliente, UUID idMoto, MotoAlteracaoRequest motoAlteracaoRequest) {
 		log.info("[inicio] MotoController - patchMoto");
 		log.info("[idCliente] {} - [idMoto] ", idCliente, idMoto);
 		motoService.alteraMotoDoClienteComId(idCliente, idMoto, motoAlteracaoRequest);
@@ -72,6 +72,3 @@ public class MotoController implements MotoAPI {
 	}
 
 }
-
-
-

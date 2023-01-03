@@ -1,4 +1,4 @@
-package br.com.leomotos.leomotos.moto.dimain;
+package br.com.leomotos.leomotos.moto.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -38,6 +38,7 @@ public class Moto {
 	private LocalDate ano;
 	@NotBlank
 	private String cor;
+	private TiposDeSerevico tiposDeSerevico;
 	@NotBlank
 	private String modelo;
 	private Marca marca;
@@ -52,6 +53,7 @@ public class Moto {
 		this.cor = motoRequest.getCor();
 		this.modelo = motoRequest.getModelo();
 		this.marca = motoRequest.getMarca();
+		this.tiposDeSerevico = motoRequest.getTiposDeSerevico();
 		this.dataDoServico = LocalDateTime.now();
 	}
 	public void altera(MotoAlteracaoRequest motoRequest) {
@@ -60,8 +62,7 @@ public class Moto {
 		this.cor = motoRequest.getCor();
 		this.modelo = motoRequest.getModelo();
 		this.marca = motoRequest.getMarca();
+		this.tiposDeSerevico = motoRequest.getTiposDeSerevico();
 		this.dataHoraDoUltimoServico = LocalDateTime.now();
 	}
 }
-
-

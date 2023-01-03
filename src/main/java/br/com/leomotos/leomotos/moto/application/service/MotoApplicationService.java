@@ -11,11 +11,11 @@ import br.com.leomotos.leomotos.cliente.application.service.ClienteService;
 import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponseParametro;
-import br.com.leomotos.leomotos.moto.application.api.MotoClientedetalahadoResponse;
+import br.com.leomotos.leomotos.moto.application.api.MotoClienteDetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoResponse;
 import br.com.leomotos.leomotos.moto.application.repository.MotoRepository;
-import br.com.leomotos.leomotos.moto.dimain.Moto;
+import br.com.leomotos.leomotos.moto.domain.Moto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -45,12 +45,12 @@ public class MotoApplicationservice implements MotoService {
 	}
 
 	@Override
-	public MotoClientedetalahadoResponse buscaMotodoClienteComId(UUID idCliente, UUID idMoto) {
+	public MotoClienteDetalahadoResponse buscaMotodoClienteComId(UUID idCliente, UUID idMoto) {
 		log.info("[inicio] MotoApplicationservice - buscaMotodoClienteComId");
 		clienteService.buscaClienteAtravesId(idCliente);
 		Moto moto = motoRepository.buscaMotopeloId(idMoto);
 		log.info("[termino] MotoApplicationservice - buscaMotodoClienteComId");
-		return new MotoClientedetalahadoResponse(moto);
+		return new MotoClienteDetalahadoResponse(moto);
 	}
 
 	@Override
@@ -81,20 +81,3 @@ public class MotoApplicationservice implements MotoService {
 		return MotoClienteListReponseParametro.converte(motosDocliente);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

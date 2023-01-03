@@ -66,10 +66,3 @@ public class ClienteApplicationService implements ClienteService {
 		log.info("[inicia] ClienteApplicationService - patchEditaCliente");
 	}
 }
-
-
-
-
-
-
-

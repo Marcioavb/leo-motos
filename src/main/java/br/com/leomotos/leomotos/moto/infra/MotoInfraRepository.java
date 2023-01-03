@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.leomotos.leomotos.handler.APIException;
 import br.com.leomotos.leomotos.moto.application.repository.MotoRepository;
-import br.com.leomotos.leomotos.moto.dimain.Moto;
+import br.com.leomotos.leomotos.moto.domain.Moto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -58,11 +58,3 @@ public class MotoInfraRepository implements MotoRepository {
 		return motos;
 	}
 }
-
-
-
-
-
-
-
-

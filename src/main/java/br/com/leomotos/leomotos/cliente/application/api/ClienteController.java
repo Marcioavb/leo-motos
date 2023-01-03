@@ -57,13 +57,3 @@ public class ClienteController implements ClienteApi {
 		log.info("[finaliza] ClienteController - patchEditaCliente");
 	}
 }
-
-
-
-
-
-
-
-
-
-

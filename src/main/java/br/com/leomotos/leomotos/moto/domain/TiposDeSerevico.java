@@ -1,9 +1,8 @@
-package br.com.leomotos.leomotos.servico.domain;
+package br.com.leomotos.leomotos.moto.domain;
 
-public enum TipoDeServico {
+public enum TiposDeSerevico {
 	REVISAO, TROCAR_OLEO, TROCAR_DISCO_DE_EMBRAGEM,
 	FAZER_MOTOR, LUBRIFICAR_CABOS, APERTAR_CORRENTE,
 	TROCAR_PNEUS, TROCAR_CAPA_DO_BANCO, TROCAR_RETENTOR,
 	TROCAR_INGNIÇÃO, SERVICO_EM_GERAL;
 }
-

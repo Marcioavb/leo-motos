@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import br.com.leomotos.leomotos.moto.dimain.Marca;
-import br.com.leomotos.leomotos.moto.dimain.Moto;
+import br.com.leomotos.leomotos.moto.domain.Marca;
+import br.com.leomotos.leomotos.moto.domain.Moto;
 import lombok.Value;
 
 @Value

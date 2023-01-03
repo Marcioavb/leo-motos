@@ -70,6 +70,3 @@ public class Cliente {
 		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
-
-
-

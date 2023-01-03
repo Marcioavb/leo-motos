@@ -3,8 +3,7 @@ package br.com.leomotos.leomotos.moto.application.repository;
 import java.util.List;
 import java.util.UUID;
 
-import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
-import br.com.leomotos.leomotos.moto.dimain.Moto;
+import br.com.leomotos.leomotos.moto.domain.Moto;
 
 public interface MotoRepository {
 	Moto salvaMoto(Moto moto);
@@ -13,4 +12,3 @@ public interface MotoRepository {
 	void deletaMoto(Moto moto);
 	List<Moto> buscaMotosDoClientePorParametro(UUID idCliente);
 }
-

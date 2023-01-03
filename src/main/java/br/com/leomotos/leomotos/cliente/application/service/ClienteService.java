@@ -17,4 +17,3 @@ public interface ClienteService {
 	void patchEditaCliente(UUID idCliente, ClienteEditadoRequest clienteEditadoRequest);
 	
 }
-

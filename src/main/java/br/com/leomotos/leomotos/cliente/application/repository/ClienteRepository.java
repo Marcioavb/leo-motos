@@ -11,5 +11,3 @@ public interface ClienteRepository {
 	Cliente buscaClienteAtravesId(UUID idCliente);
 	void deletaClienteAtravesId(Cliente cliente);
 }
-
-

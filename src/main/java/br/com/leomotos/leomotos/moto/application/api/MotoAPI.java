@@ -32,7 +32,7 @@ public interface MotoAPI {
 	
 	@GetMapping(value = "/{idMoto}")
 	@ResponseStatus(code = HttpStatus.OK)
-	MotoClientedetalahadoResponse getMotoDoClienteComId 
+	MotoClienteDetalahadoResponse getMotoDoClienteComId 
 	(@PathVariable UUID idCliente, @PathVariable UUID idMoto);
 	
 	@DeleteMapping(value = "/{idMoto}")
@@ -49,8 +49,3 @@ public interface MotoAPI {
 	List<MotoClienteListReponseParametro> getMotosDoClienteParametro 
 	(@PathVariable UUID idCliente);
 }
-
-
-
-
-

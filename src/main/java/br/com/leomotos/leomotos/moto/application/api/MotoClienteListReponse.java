@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import br.com.leomotos.leomotos.moto.dimain.Marca;
-import br.com.leomotos.leomotos.moto.dimain.Moto;
+import br.com.leomotos.leomotos.moto.domain.Marca;
+import br.com.leomotos.leomotos.moto.domain.Moto;
+import br.com.leomotos.leomotos.moto.domain.TiposDeSerevico;
 import lombok.Value;
 
 @Value
@@ -16,6 +17,7 @@ public class MotoClienteListReponse {
 	private Marca marca;
 	private String modelo;
 	private LocalDate ano;
+	private TiposDeSerevico tiposDeSerevico;
 	private String cor;
 	
 	public MotoClienteListReponse(Moto moto) {
@@ -25,6 +27,7 @@ public class MotoClienteListReponse {
 		this.modelo = moto.getModelo();
 		this.ano = moto.getAno();
 		this.cor = moto.getCor();
+		this.tiposDeSerevico = moto.getTiposDeSerevico();
 	}
 
 	public static List<MotoClienteListReponse> converte(List<Moto> motosDocliente) {
@@ -33,6 +36,3 @@ public class MotoClienteListReponse {
 				.collect(Collectors.toList());
 	}
 }
-
-
-
