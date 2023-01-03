@@ -33,7 +33,7 @@ public class ClienteController implements ClienteApi {
 	}
 
 	@Override
-	public ClienteDetalhadoResponse getClienteAtravesDoId(UUID idCliente) {
+	public ClienteDetalhadoResponse getClienteAtravesDoID(UUID idCliente) {
 		log.info("[inicio] ClienteController - getClienteAtravesDoId");
 		log.info("[idCliente] {}", idCliente);
 		ClienteDetalhadoResponse clienteDetalhado = clienteService.buscaClienteAtravesId(idCliente);
@@ -55,5 +55,14 @@ public class ClienteController implements ClienteApi {
 		log.info("[idCliente] {}", idCliente);
 		clienteService.patchEditaCliente (idCliente, clienteEditadoRequest);
 		log.info("[finaliza] ClienteController - patchEditaCliente");
+	}
+
+	@Override
+	public ClienteResponseCpf getClienteAtravesDoCpf(String cpf) {
+		log.info("[inicio] ClienteController - getClienteAtravesDoId");
+		log.info("[idCliente] {}", cpf);
+		ClienteResponseCpf clienteDetalhado = clienteService.getClienteAtravesDoCpf(cpf);
+		log.info("[finaliza] ClienteController - getClienteAtravesDoId");
+		return clienteDetalhado;
 	}
 }

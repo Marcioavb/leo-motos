@@ -35,11 +35,11 @@ public class ClienteInfraRepository implements ClienteRepository {
 	}
 
 	@Override
-	public Cliente buscaClienteAtravesId(UUID idCliente) {
-		log.info("[ininia] ClienteInfraRepository -  buscaClienteAtravesId");
+	public Cliente buscaClienteAtravesId(UUID idCliente){
+		log.info("[ininia] ClienteInfraRepository -  getClienteAtravesDoId");
 		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente nao encontardo!"));
-		log.info("[finaliza] ClienteInfraRepository -  buscaClienteAtravesId");
+		log.info("[finaliza] ClienteInfraRepository -  getClienteAtravesDoId");
 		return cliente;
 	}
 
@@ -48,5 +48,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		log.info("[ininia] ClienteInfraRepository -  deletaClienteAtravesId");
 		clienteSpringDataJPARepository.delete(cliente);
 		log.info("[ininia] ClienteInfraRepository -  deletaClienteAtravesId");
+	}
+
+	@Override
+	public Cliente getClienteAtravesDoCpf(String cpf) {
+		log.info("[ininia] ClienteInfraRepository -  getClienteAtravesDoCpf");
+		Cliente cliente = clienteSpringDataJPARepository.findByCpf(cpf)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente nao encontardo!"));
+		log.info("[finaliza] ClienteInfraRepository -  getClienteAtravesDoCpf");
+		return cliente;
 	}
 }

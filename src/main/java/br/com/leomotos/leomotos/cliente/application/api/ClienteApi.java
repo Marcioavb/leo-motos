@@ -30,7 +30,7 @@ public interface ClienteApi {
 	
 	@GetMapping (value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.OK)
-	ClienteDetalhadoResponse getClienteAtravesDoId (@PathVariable UUID idCliente);
+	ClienteDetalhadoResponse getClienteAtravesDoID (@PathVariable UUID idCliente);
 	
 	@DeleteMapping (value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -40,4 +40,8 @@ public interface ClienteApi {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void patchEditaCliente (@PathVariable UUID idCliente, 
 			@Valid @RequestBody ClienteEditadoRequest clienteEditadoRequest);
+	
+	@GetMapping (value = "/{cpf}")
+	@ResponseStatus(code = HttpStatus.OK)
+	ClienteResponseCpf getClienteAtravesDoCpf(@PathVariable String cpf);
 }

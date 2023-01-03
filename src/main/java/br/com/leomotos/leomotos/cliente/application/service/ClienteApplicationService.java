@@ -3,10 +3,9 @@ package br.com.leomotos.leomotos.cliente.application.service;
 import java.util.List;
 import java.util.UUID;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Service;
 
+import br.com.leomotos.leomotos.cliente.application.api.ClienteResponseCpf;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteEditadoRequest;
 import br.com.leomotos.leomotos.cliente.application.api.ClienteListResponse;
@@ -40,21 +39,20 @@ public class ClienteApplicationService implements ClienteService {
 		log.info("[finaliza] ClienteApplicationService - buscaTodosClientes");
 		return ClienteListResponse.converte(clientes);
 	}
-
 	@Override
 	public ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente) {
-		log.info("[inicia] ClienteApplicationService - buscaClienteAtravesId");
-		Cliente cliente = clienteRepository.buscaClienteAtravesId (idCliente);
-		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
+		log.info("[inicia] ClienteApplicationService - getClienteAtravesDoId");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		log.info("[finaliza] ClienteApplicationService - getClienteAtravesDoId");
 		return new ClienteDetalhadoResponse(cliente);
 	}
 
 	@Override
 	public void deletaClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteApplicationService - deletaClienteAtravesId");
-		Cliente cliente = clienteRepository.buscaClienteAtravesId (idCliente);
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
 		clienteRepository.deletaClienteAtravesId(cliente);
-		log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesId");
+		log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesId"); 
 	}
 
 	@Override
@@ -65,4 +63,14 @@ public class ClienteApplicationService implements ClienteService {
 		clienteRepository.salva(cliente);
 		log.info("[inicia] ClienteApplicationService - patchEditaCliente");
 	}
+
+	@Override
+	public ClienteResponseCpf getClienteAtravesDoCpf(String cpf) {
+		log.info("[inicia] ClienteApplicationService - getClienteAtravesDoCpf");
+		Cliente cliente = clienteRepository.getClienteAtravesDoCpf(cpf);
+		log.info("[finaliza] ClienteApplicationService - getClienteAtravesDoCpf");
+		return new ClienteResponseCpf(cliente);
+	}
 }
+
+
