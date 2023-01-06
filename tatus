@@ -1,0 +1,73 @@
+warning: in the working copy of 'src/main/java/br/com/leomotos/leomotos/LeoMotosApplication.java', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/main/java/br/com/leomotos/leomotos/LeoMotosApplication.java b/src/main/java/br/com/leomotos/leomotos/LeoMotosApplication.java[m
+[1mindex 6c13205..e2f645a 100644[m
+[1m--- a/src/main/java/br/com/leomotos/leomotos/LeoMotosApplication.java[m
+[1m+++ b/src/main/java/br/com/leomotos/leomotos/LeoMotosApplication.java[m
+[36m@@ -13,9 +13,8 @@[m [mpublic class LeoMotosApplication {[m
+ 	[m
+ 	@GetMapping[m
+ 	public String getHomeTeste() {[m
+[31m-		return "Leo Motos a Empresa que mais cresce";[m
+[32m+[m		[32mreturn "Leo Motos Teste ok";[m
+ 	}[m
+[31m-	[m
+ 	public static void main(String[] args) {[m
+ 		SpringApplication.run(LeoMotosApplication.class, args);[m
+ 	}[m
+[1mdiff --git a/src/main/java/br/com/leomotos/leomotos/cliente/domain/Cliente.java b/src/main/java/br/com/leomotos/leomotos/cliente/domain/Cliente.java[m
+[1mindex 769c97c..497e219 100644[m
+[1m--- a/src/main/java/br/com/leomotos/leomotos/cliente/domain/Cliente.java[m
+[1m+++ b/src/main/java/br/com/leomotos/leomotos/cliente/domain/Cliente.java[m
+[36m@@ -1,5 +1,6 @@[m
+ package br.com.leomotos.leomotos.cliente.domain;[m
+ [m
+[32m+[m[32mimport java.time.LocalDate;[m
+ import java.time.LocalDateTime;[m
+ import java.util.UUID;[m
+ import javax.persistence.Column;[m
+[36m@@ -12,6 +13,7 @@[m [mimport javax.validation.constraints.NotBlank;[m
+ import javax.validation.constraints.NotNull;[m
+ import org.hibernate.validator.constraints.br.CPF;[m
+ [m
+[32m+[m[32mimport br.com.leomotos.leomotos.cliente.application.api.ClienteRequest;[m
+ import lombok.Getter;[m
+ import lombok.NoArgsConstructor;[m
+ [m
+[36m@@ -34,7 +36,7 @@[m [mpublic class Cliente {[m
+ 	private String telefone;[m
+ 	private Sexo sexo;[m
+ 	@NotNull[m
+[31m-	private LocalDateTime dataNascimento;[m
+[32m+[m	[32mprivate LocalDate dataNascimento;[m
+ 	@CPF[m
+ 	private String cpf;[m
+ 	@NotNull[m
+[36m@@ -43,18 +45,16 @@[m [mpublic class Cliente {[m
+ 	private LocalDateTime datahoraDoCadastro;[m
+ 	private LocalDateTime dataHoraDaUltimaAlteracao;[m
+ 	[m
+[31m-	public Cliente(UUID idCliente, @NotBlank String nomeCompleto, @NotBlank @Email String email,[m
+[31m-			@NotBlank String celular, String telefone, Sexo sexo, @NotNull LocalDateTime dataNascimento,[m
+[31m-			@CPF String cpf, @NotNull Boolean aceitaTermos) {[m
+[31m-		this.idCliente = idCliente;[m
+[31m-		this.nomeCompleto = nomeCompleto;[m
+[31m-		this.email = email;[m
+[31m-		this.celular = celular;[m
+[31m-		this.telefone = telefone;[m
+[31m-		this.sexo = sexo;[m
+[31m-		this.dataNascimento = dataNascimento;[m
+[31m-		this.cpf = cpf;[m
+[31m-		this.aceitaTermos = aceitaTermos;[m
+[32m+[m	[32mpublic Cliente(ClienteRequest clienteRequest) {[m
+[32m+[m		[32mthis.nomeCompleto = clienteRequest.getNomeCompleto();[m
+[32m+[m		[32mthis.email = clienteRequest.getEmail();[m
+[32m+[m		[32mthis.celular = clienteRequest.getCelular();[m
+[32m+[m		[32mthis.telefone = clienteRequest.getCelular();[m
+[32m+[m		[32mthis.sexo = clienteRequest.getSexo();[m
+[32m+[m		[32mthis.dataNascimento = clienteRequest.getDataNascimento();[m
+[32m+[m		[32mthis.cpf = clienteRequest.getCpf();[m
+[32m+[m		[32mthis.aceitaTermos = clienteRequest.getAceitaTermos();[m
+[32m+[m		[32mthis.datahoraDoCadastro = LocalDateTime.now();[m
+ 	}[m
+ }[m
+ [m
