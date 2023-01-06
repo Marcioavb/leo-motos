@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.leomotos.leomotos.cliente.application.service.ClienteService;
 import br.com.leomotos.leomotos.moto.application.api.MotoAlteracaoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponse;
-import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponseParametro;
+import br.com.leomotos.leomotos.moto.application.api.MotoClienteListReponsePlaca;
 import br.com.leomotos.leomotos.moto.application.api.MotoClienteDetalahadoResponse;
 import br.com.leomotos.leomotos.moto.application.api.MotoRequest;
 import br.com.leomotos.leomotos.moto.application.api.MotoResponse;
@@ -73,11 +73,11 @@ public class MotoApplicationservice implements MotoService {
 	}
 
 	@Override
-	public List<MotoClienteListReponseParametro> buscaMotosdoClientePorParametro(UUID idCliente) {
-		log.info("[inicio] MotoApplicationservice - buscaMotosdoClientePorParametro");
-		clienteService.buscaClienteAtravesId(idCliente);
-		List<Moto> motosDocliente = motoRepository.buscaMotosDoClientePorParametro(idCliente);
-		log.info("[termino] MotoApplicationservice - buscaMotosdoClientePorParametro");
-		return MotoClienteListReponseParametro.converte(motosDocliente);
+	public MotoClienteListReponsePlaca buscaMotosdoClientePorPlaca( UUID idMoto, String placa) {
+		log.info("[inicio] MotoApplicationservice - buscaMotosdoClientePorPlaca");
+		motoRepository.buscaMotopeloId(idMoto);
+		Moto motoDocliente = motoRepository.buscaMotosDoClientePorPlaca(placa);
+		log.info("[termino] MotoApplicationservice - buscaMotosdoClientePorPlaca");
+		return new MotoClienteListReponsePlaca(motoDocliente);
 	}
 }

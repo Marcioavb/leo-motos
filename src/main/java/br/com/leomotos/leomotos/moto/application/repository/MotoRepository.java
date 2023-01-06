@@ -10,5 +10,5 @@ public interface MotoRepository {
 	List<Moto> buscaMotosDoClienteComId(UUID idCliente);
 	Moto buscaMotopeloId(UUID idMoto);
 	void deletaMoto(Moto moto);
-	List<Moto> buscaMotosDoClientePorParametro(UUID idCliente);
+	Moto buscaMotosDoClientePorPlaca(String placa);
 }

@@ -44,8 +44,8 @@ public interface MotoAPI {
 	void patchMoto(@PathVariable UUID idCliente, @PathVariable UUID idMoto,
 			@Valid @RequestBody MotoAlteracaoRequest motoAlteracaoRequest);
 	
-	@GetMapping(value = "/{placa}")
+	@GetMapping(value = "/{idMoto}/placa/{placa}")
 	@ResponseStatus(code = HttpStatus.OK)
-	List<MotoClienteListReponseParametro> getMotosDoClienteParametro 
-	(@PathVariable UUID idCliente);
+	MotoClienteListReponsePlaca getMotosDoClientePlaca 
+	(@PathVariable UUID idMoto, @PathVariable String placa);
 }

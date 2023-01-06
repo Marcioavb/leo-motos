@@ -41,7 +41,7 @@ public interface ClienteApi {
 	void patchEditaCliente (@PathVariable UUID idCliente, 
 			@Valid @RequestBody ClienteEditadoRequest clienteEditadoRequest);
 	
-	@GetMapping (value = "/{cpf}")
+	@GetMapping (value = "/cpf/{cpf}")
 	@ResponseStatus(code = HttpStatus.OK)
 	ClienteResponseCpf getClienteAtravesDoCpf(@PathVariable String cpf);
 }

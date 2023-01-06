@@ -51,10 +51,11 @@ public class MotoInfraRepository implements MotoRepository {
 	}
 
 	@Override
-	public List<Moto> buscaMotosDoClientePorParametro(UUID idCliente) {
-		log.info("[inicio] MotoInfraRepository - buscaMotosDoClientePorParametro");
-		var motos  = motoSpringDataJPARepository.findByidClientePropietario(idCliente);
-		log.info("[termino] MotoInfraRepository - buscaMotosDoClientePorParametro");
-		return motos;
+	public Moto buscaMotosDoClientePorPlaca(String placa) {
+		log.info("[inicio] MotoInfraRepository - buscaMotosDoClientePorPlaca");
+		var moto = motoSpringDataJPARepository.findByPlaca(placa).orElseThrow(
+				()-> APIException.build(HttpStatus.NOT_FOUND, "placa de moto nao existe " + placa));
+		log.info("[finaliza] MotoInfraRepository - buscaMotosDoClientePorPlaca");
+		return moto;
 	}
 }
