@@ -54,7 +54,7 @@ public class MotoInfraRepository implements MotoRepository {
 	public Moto buscaMotosDoClientePorPlaca(String placa) {
 		log.info("[inicio] MotoInfraRepository - buscaMotosDoClientePorPlaca");
 		var moto = motoSpringDataJPARepository.findByPlaca(placa).orElseThrow(
-				()-> APIException.build(HttpStatus.NOT_FOUND, "placa de moto nao existe " + placa));
+				()-> APIException.build(HttpStatus.NOT_FOUND, "placa de moto nao existe" + placa));
 		log.info("[finaliza] MotoInfraRepository - buscaMotosDoClientePorPlaca");
 		return moto;
 	}

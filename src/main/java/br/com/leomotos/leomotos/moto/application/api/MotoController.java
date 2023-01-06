@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.leomotos.leomotos.moto.application.service.MotoService;
@@ -65,7 +64,7 @@ public class MotoController implements MotoAPI {
 	@Override
 	public MotoClienteListReponsePlaca getMotosDoClientePlaca(UUID idMoto, String placa) {
 		log.info("[inicio] MotoController - getMotosDoClientePlaca");
-		log.info("[idCliente] {}", placa);
+		log.info("[idMoto] {}", placa);
 		MotoClienteListReponsePlaca motoDoCliente = 
 				motoService.buscaMotosdoClientePorPlaca(idMoto, placa);
 		log.info("[termino] MotoController - getMotosDoClientePlaca");
