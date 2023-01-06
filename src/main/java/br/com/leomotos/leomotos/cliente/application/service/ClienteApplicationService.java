@@ -72,5 +72,3 @@ public class ClienteApplicationService implements ClienteService {
 		return new ClienteResponseCpf(cliente);
 	}
 }
-
-

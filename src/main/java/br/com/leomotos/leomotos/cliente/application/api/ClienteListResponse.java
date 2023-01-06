@@ -29,5 +29,3 @@ public class ClienteListResponse {
 		this.cpf = cliente.getCpf();
 	}
 }
-
-
